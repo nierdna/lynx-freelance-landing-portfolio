@@ -1,5 +1,6 @@
 *
 !.gitignore
 !AGENTS.md
+!Dockerfile
 !index.html
 !portfolio-landing-page-freelance.html
