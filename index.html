@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nguyên Lynx — Sửa & Nâng Cấp Landing Page (Wix · Hình ảnh · Màu sắc · Animation)</title>
+<style>
+  :root{
+    --bg:#0b0b10; --bg2:#13131a; --card:#181820; --line:rgba(255,255,255,.08);
+    --text:#f3f3f6; --muted:#9b9ba8; --accent:#7c5cff; --accent2:#34d3a8;
+    --warn:#ffb454;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:var(--bg); color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    line-height:1.6; overflow-x:hidden;
+  }
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:1080px; margin:0 auto; padding:0 24px;}
+  section{padding:64px 0;}
+  .badge{
+    display:inline-flex; align-items:center; gap:6px;
+    background:rgba(124,92,255,.12); border:1px solid rgba(124,92,255,.35);
+    color:#bfb0ff; font-size:13px; font-weight:600; padding:6px 14px;
+    border-radius:999px; margin-bottom:18px;
+  }
+  h1{font-size:clamp(30px,5vw,48px); line-height:1.15; font-weight:800; letter-spacing:-.02em;}
+  h2{font-size:clamp(24px,4vw,32px); font-weight:800; letter-spacing:-.01em; margin-bottom:8px;}
+  .sub{color:var(--muted); font-size:16px; max-width:640px;}
+  .grad{background:linear-gradient(90deg,#a78bfa,#34d3a8); -webkit-background-clip:text; background-clip:text; color:transparent;}
+
+  /* HERO */
+  .hero{
+    position:relative; padding:88px 0 56px;
+    background:
+      radial-gradient(ellipse at 20% -10%, rgba(124,92,255,.35), transparent 50%),
+      radial-gradient(ellipse at 100% 0%, rgba(52,211,168,.18), transparent 50%);
+    border-bottom:1px solid var(--line);
+  }
+  .hero-top{display:flex; justify-content:space-between; align-items:center; margin-bottom:48px;}
+  .logo{font-weight:800; font-size:18px; letter-spacing:-.02em;}
+  .logo span{color:var(--accent2);}
+  .cta-btn{
+    background:var(--accent); color:#fff; font-weight:700; font-size:14px;
+    padding:11px 20px; border-radius:10px; display:inline-block;
+    box-shadow:0 8px 24px rgba(124,92,255,.35);
+  }
+  .cta-btn.ghost{background:transparent; border:1px solid var(--line); box-shadow:none; color:var(--text);}
+  .hero-grid{display:flex; gap:48px; align-items:flex-end; flex-wrap:wrap;}
+  .hero-left{flex:1; min-width:280px;}
+  .hero-right{
+    display:grid; grid-template-columns:repeat(2,1fr); gap:12px; flex:1; min-width:260px;
+  }
+  .stat{
+    background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px 18px;
+  }
+  .stat b{font-size:22px; display:block; font-weight:800;}
+  .stat span{color:var(--muted); font-size:12.5px;}
+  .hero-ctas{display:flex; gap:12px; margin-top:28px; flex-wrap:wrap;}
+
+  /* SERVICES */
+  .svc-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-top:32px;}
+  .svc{
+    background:var(--card); border:1px solid var(--line); border-radius:16px; padding:22px;
+    transition:border-color .2s;
+  }
+  .svc .ico{font-size:22px; margin-bottom:10px;}
+  .svc h3{font-size:16px; font-weight:700; margin-bottom:6px;}
+  .svc p{color:var(--muted); font-size:13.5px;}
+
+  /* PORTFOLIO */
+  .proj{
+    background:var(--card); border:1px solid var(--line); border-radius:18px; padding:24px;
+    margin-bottom:16px; display:flex; gap:20px; flex-wrap:wrap; align-items:center;
+  }
+  .proj-tag{
+    display:inline-block; font-size:11px; font-weight:700; color:var(--accent2);
+    background:rgba(52,211,168,.12); border:1px solid rgba(52,211,168,.3);
+    padding:3px 10px; border-radius:999px; margin-bottom:10px;
+  }
+  .proj-body{flex:1; min-width:240px;}
+  .proj-body h3{font-size:18px; font-weight:800; margin-bottom:6px;}
+  .proj-body p{color:var(--muted); font-size:14px; margin-bottom:10px;}
+  .proj-link{
+    font-size:13.5px; font-weight:700; color:#bfb0ff; word-break:break-all;
+    border-bottom:1px solid rgba(191,176,255,.4);
+  }
+  .proj-skills{display:flex; gap:6px; flex-wrap:wrap; margin-top:12px;}
+  .chip{
+    font-size:11.5px; color:var(--muted); border:1px solid var(--line); padding:3px 9px; border-radius:999px;
+  }
+
+  /* PROCESS */
+  .steps{display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:32px;}
+  .step{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:18px;}
+  .step .n{
+    width:28px; height:28px; border-radius:8px; background:var(--accent); color:#fff;
+    display:flex; align-items:center; justify-content:center; font-weight:800; font-size:13px; margin-bottom:10px;
+  }
+  .step h4{font-size:14.5px; font-weight:700; margin-bottom:5px;}
+  .step p{color:var(--muted); font-size:12.5px;}
+
+  /* PRICING */
+  .price-table{
+    width:100%; border-collapse:collapse; margin-top:28px; background:var(--card);
+    border-radius:16px; overflow:hidden; border:1px solid var(--line);
+  }
+  .price-table th, .price-table td{padding:16px 18px; text-align:left; font-size:14px;}
+  .price-table thead th{
+    background:rgba(124,92,255,.12); color:#cfc4ff; font-size:12.5px;
+    text-transform:uppercase; letter-spacing:.04em; font-weight:700;
+  }
+  .price-table tbody tr{border-top:1px solid var(--line);}
+  .price-table td.amt{font-weight:800; color:var(--accent2); white-space:nowrap;}
+  .price-note{color:var(--muted); font-size:13px; margin-top:14px; line-height:1.7;}
+  .price-note b{color:var(--text);}
+
+  /* WHY */
+  .why-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:14px; margin-top:32px;}
+  .why{background:var(--card); border:1px solid var(--line); border-radius:14px; padding:20px;}
+  .why h4{font-size:15px; font-weight:700; margin-bottom:6px;}
+  .why p{color:var(--muted); font-size:13.5px;}
+
+  /* CONTACT */
+  .contact{
+    background:linear-gradient(135deg, rgba(124,92,255,.18), rgba(52,211,168,.1));
+    border:1px solid var(--line); border-radius:24px; padding:48px 32px; text-align:center; margin:0 24px;
+  }
+  .contact h2{margin-bottom:10px;}
+  .contact .sub{margin:0 auto 28px; }
+  .contact-row{display:flex; gap:14px; justify-content:center; flex-wrap:wrap;}
+  footer{text-align:center; padding:32px 0; color:var(--muted); font-size:12.5px;}
+
+  @media (max-width:760px){
+    .svc-grid{grid-template-columns:1fr 1fr;}
+    .steps{grid-template-columns:1fr 1fr;}
+    .why-grid{grid-template-columns:1fr;}
+    .hero-right{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (max-width:520px){
+    .svc-grid{grid-template-columns:1fr;}
+    .steps{grid-template-columns:1fr;}
+    section{padding:44px 0;}
+    .hero{padding:56px 0 36px;}
+    .proj{padding:18px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="hero-top">
+      <div class="logo">LYNX <span>·</span> Web Freelance</div>
+      <a class="cta-btn ghost" href="https://zalo.me/0912205001" style="font-size:13px;">💬 Zalo tư vấn</a>
+    </div>
+    <div class="hero-grid">
+      <div class="hero-left">
+        <div class="badge">⚡ Nhận sửa landing page Wix trong 24-72h</div>
+        <h1>Sửa & nâng cấp <span class="grad">landing page</span><br>đẹp hơn, sống động hơn, chốt đơn tốt hơn.</h1>
+        <p class="sub" style="margin-top:16px;">
+          Chuyên chỉnh sửa hình ảnh, bảng màu, hiệu ứng chuyển động (animation) và layout cho landing page —
+          làm việc trên Wix và mọi nền tảng web khác. Đây là một vài sản phẩm thật đội mình đã thiết kế & vận hành.
+        </p>
+        <div class="hero-ctas">
+          <a class="cta-btn" href="#portfolio">Xem dự án thật →</a>
+          <a class="cta-btn ghost" href="#pricing">Xem báo giá</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="stat"><b>5+</b><span>Landing page đã triển khai thực tế</span></div>
+        <div class="stat"><b>7 ngày</b><span>Thời gian dựng 1 landing trọn gói</span></div>
+        <div class="stat"><b>24-72h</b><span>Thời gian sửa hình ảnh/màu/animation</span></div>
+        <div class="stat"><b>100%</b><span>Review trước khi lên sóng chính thức</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="wrap" id="services">
+  <div class="badge">Dịch vụ</div>
+  <h2>Đúng cái khách đang cần: ảnh, màu, animation — và hơn thế.</h2>
+  <p class="sub">Làm gọn từng hạng mục nhỏ, hoặc nhận trọn landing page từ đầu. Đa số yêu cầu web/app mình đều làm được.</p>
+  <div class="svc-grid">
+    <div class="svc"><div class="ico">🖼️</div><h3>Thay & xử lý hình ảnh</h3><p>Đổi banner, ảnh sản phẩm, tối ưu ảnh nét/nhẹ, cắt ghép theo bố cục mới.</p></div>
+    <div class="svc"><div class="ico">🎨</div><h3>Đổi bảng màu / nhận diện</h3><p>Làm mới màu chủ đạo, đồng bộ theo logo/brand, tăng độ chuyên nghiệp.</p></div>
+    <div class="svc"><div class="ico">✨</div><h3>Thêm animation / hiệu ứng</h3><p>Scroll-reveal, hover effect, chuyển động banner, micro-interaction giúp trang "sống".</p></div>
+    <div class="svc"><div class="ico">📐</div><h3>Sửa layout & responsive</h3><p>Bố cục lại section, đảm bảo hiển thị đẹp trên mobile/tablet/desktop.</p></div>
+    <div class="svc"><div class="ico">⚡</div><h3>Tối ưu tốc độ tải trang</h3><p>Giảm dung lượng ảnh/video, tối ưu để trang load nhanh hơn, SEO tốt hơn.</p></div>
+    <div class="svc"><div class="ico">🧩</div><h3>Dựng landing page từ đầu</h3><p>Cần trang hoàn toàn mới? Build full từ wireframe đến hoàn thiện, có dashboard nếu cần.</p></div>
+  </div>
+</section>
+
+<section class="wrap" id="portfolio">
+  <div class="badge">Dự án thực tế</div>
+  <h2>Một vài landing page / website đội mình đã triển khai.</h2>
+  <p class="sub">Khách có thể bấm vào link để xem trực tiếp — không phải mockup.</p>
+
+  <div style="margin-top:28px;">
+    <div class="proj">
+      <div class="proj-body">
+        <span class="proj-tag">Đại lý ô tô · Landing thương hiệu</span>
+        <h3>VinFast HTA Hai Bà Trưng</h3>
+        <p>Website đại lý chính hãng: banner video nền, catalog xe tương tác, form đăng ký lái thử, bản đồ showroom — tối ưu chuyển đổi & hình ảnh xe nét, đồng bộ màu thương hiệu VinFast.</p>
+        <a class="proj-link" href="https://vinfasthaibatrungauto.vn/" target="_blank">vinfasthaibatrungauto.vn</a>
+        <div class="proj-skills"><span class="chip">Hero video</span><span class="chip">Catalog ảnh</span><span class="chip">Form lead</span><span class="chip">Responsive</span></div>
+      </div>
+    </div>
+
+    <div class="proj">
+      <div class="proj-body">
+        <span class="proj-tag">Landing chuyển đổi · Dashboard riêng</span>
+        <h3>LynX — Phễu Lead VinFast cho Seller</h3>
+        <p>Landing bán hàng cá nhân hóa cho seller VinFast: storytelling theo "pain → solution", animation số liệu (visitor/lead/CPL live), dashboard riêng từng khách, bảng giá 3 gói rõ ràng.</p>
+        <a class="proj-link" href="https://saler.lynxsolution.vn/" target="_blank">saler.lynxsolution.vn</a>
+        <div class="proj-skills"><span class="chip">Animation số liệu</span><span class="chip">Dashboard</span><span class="chip">3-tier pricing</span><span class="chip">Lead form</span></div>
+      </div>
+    </div>
+
+    <div class="proj">
+      <div class="proj-body">
+        <span class="proj-tag">Landing khóa học · Cá nhân hóa</span>
+        <h3>Khóa Claude 1:1 cho HR & Quản lý</h3>
+        <p>Landing bán khóa học online: hero ảnh giảng viên, lộ trình học theo module có ảnh minh họa, bảng giá 2 gói, FAQ accordion, ưu đãi theo combo — toàn bộ tối ưu màu sắc & hình ảnh để tăng tin tưởng.</p>
+        <a class="proj-link" href="https://khoa-hoc-claude-11.lynxsolution.vn/" target="_blank">khoa-hoc-claude-11.lynxsolution.vn</a>
+        <div class="proj-skills"><span class="chip">FAQ accordion</span><span class="chip">Pricing table</span><span class="chip">Ảnh giảng viên</span><span class="chip">Mobile-first</span></div>
+      </div>
+    </div>
+
+    <div class="proj">
+      <div class="proj-body">
+        <span class="proj-tag">Sản phẩm AI · Hiệu ứng nâng cao</span>
+        <h3>LuminaForge — Local AI Workflow Studio</h3>
+        <p>Landing sản phẩm công nghệ với video hero nền, bento-grid hình ảnh minh họa workflow, song ngữ VI/EN, FAQ tương tác — phong cách dark, hiện đại, nhiều animation chuyển cảnh.</p>
+        <a class="proj-link" href="https://luminaforge.lynxsolution.vn/" target="_blank">luminaforge.lynxsolution.vn</a>
+        <div class="proj-skills"><span class="chip">Video hero</span><span class="chip">Bento grid</span><span class="chip">Song ngữ</span><span class="chip">Dark UI</span></div>
+      </div>
+    </div>
+
+    <div class="proj">
+      <div class="proj-body">
+        <span class="proj-tag">Corporate website · Đa trang</span>
+        <h3>LYNX AI Solution — Trang doanh nghiệp</h3>
+        <p>Website công ty 40+ nhân sự: hero dashboard động, timeline quy trình, showcase dự án, đội ngũ lãnh đạo, chứng nhận — bố cục nhiều section dài, đồng bộ màu & hình ảnh toàn trang.</p>
+        <a class="proj-link" href="https://lynxsolution.vn/" target="_blank">lynxsolution.vn</a>
+        <div class="proj-skills"><span class="chip">Multi-section</span><span class="chip">Team showcase</span><span class="chip">Project grid</span><span class="chip">Brand system</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="wrap" id="process">
+  <div class="badge">Cách làm việc</div>
+  <h2>Đơn giản, gọn — không vòng vo.</h2>
+  <div class="steps">
+    <div class="step"><div class="n">1</div><h4>Gửi link + yêu cầu</h4><p>Khách gửi link Wix hiện tại + mô tả phần cần sửa (ảnh/màu/animation/khác).</p></div>
+    <div class="step"><div class="n">2</div><h4>Báo giá & timeline</h4><p>Mình báo giá cụ thể theo hạng mục trong vòng vài giờ, có thời gian hoàn thành rõ.</p></div>
+    <div class="step"><div class="n">3</div><h4>Thực hiện & gửi preview</h4><p>Chỉnh sửa trực tiếp, gửi preview để khách duyệt trước khi public.</p></div>
+    <div class="step"><div class="n">4</div><h4>Bàn giao & hỗ trợ</h4><p>Public chính thức, hỗ trợ chỉnh nhẹ sau bàn giao trong thời gian thỏa thuận.</p></div>
+  </div>
+</section>
+
+<section class="wrap" id="pricing">
+  <div class="badge">Báo giá tham khảo</div>
+  <h2>Báo giá theo trang / hạng mục.</h2>
+  <p class="sub">Mức giá thị trường tự do (freelance) cho dịch vụ chỉnh sửa landing page trên Wix. Giá cuối tùy độ phức tạp thực tế, sẽ chốt cụ thể sau khi xem link & yêu cầu.</p>
+
+  <table class="price-table">
+    <thead>
+      <tr><th>Hạng mục</th><th>Mô tả</th><th>Đơn giá</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Đổi ảnh / banner (1 trang)</td><td>Thay ảnh mới, tối ưu kích thước, căn chỉnh bố cục</td><td class="amt">300.000 – 600.000đ</td></tr>
+      <tr><td>Đổi bảng màu (1 trang)</td><td>Làm mới màu chủ đạo, đồng bộ theo logo/brand</td><td class="amt">300.000 – 700.000đ</td></tr>
+      <tr><td>Thêm animation / hiệu ứng (1 hạng mục)</td><td>Scroll-reveal, hover, chuyển động banner cho 1 section</td><td class="amt">250.000 – 600.000đ / hạng mục</td></tr>
+      <tr><td>Sửa tổng thể 1 trang (ảnh + màu + animation)</td><td>Gói kết hợp cả 3 hạng mục trên cho 1 trang</td><td class="amt">1.200.000 – 2.500.000đ / trang</td></tr>
+      <tr><td>Tối ưu responsive / tốc độ tải</td><td>Sửa hiển thị mobile, nén ảnh, tối ưu performance</td><td class="amt">400.000 – 900.000đ / trang</td></tr>
+      <tr><td>Landing page mới hoàn toàn</td><td>Build từ đầu: layout, ảnh, màu, animation, form</td><td class="amt">từ 5.000.000đ / trang</td></tr>
+    </tbody>
+  </table>
+  <p class="price-note">
+    <b>Lưu ý:</b> Giá trên áp dụng cho landing page thông thường (Wix/Webflow/HTML). Báo giá chính xác sẽ gửi sau khi xem link website hiện tại và số trang/hạng mục cụ thể. Nhận thanh toán theo mốc: <b>50% khi chốt phạm vi công việc — 50% khi bàn giao</b>. Có hỗ trợ chỉnh nhẹ miễn phí trong 3-7 ngày sau bàn giao.
+  </p>
+</section>
+
+<section class="wrap" id="why">
+  <div class="badge">Vì sao chọn mình</div>
+  <h2>Không chỉ sửa ảnh — làm để bán được hàng.</h2>
+  <div class="why-grid">
+    <div class="why"><h4>🚀 Làm nhanh, đúng hạn</h4><p>Hạng mục nhỏ (ảnh/màu/animation) thường hoàn thành trong 24-72h.</p></div>
+    <div class="why"><h4>🎯 Linh hoạt theo yêu cầu</h4><p>Hầu như yêu cầu web/app nào cũng nhận làm được — không chỉ landing page Wix.</p></div>
+    <div class="why"><h4>📦 Có sản phẩm thật để kiểm chứng</h4><p>Tất cả link portfolio trên đều là website đang chạy thật, không phải demo dựng riêng.</p></div>
+    <div class="why"><h4>🤝 Hỗ trợ sau bàn giao</h4><p>Chỉnh nhẹ miễn phí sau khi public, không "giao xong là biến mất".</p></div>
+  </div>
+</section>
+
+<section class="wrap" id="contact" style="padding-bottom:80px;">
+  <div class="contact">
+    <h2>Gửi link Wix của bạn — mình báo giá ngay.</h2>
+    <p class="sub" style="margin:0 auto 24px;">Chỉ cần gửi link landing page hiện tại + phần muốn sửa (ảnh/màu/animation), mình phản hồi báo giá & thời gian trong vài giờ.</p>
+    <div class="contact-row">
+      <a class="cta-btn" href="https://zalo.me/0912205001" target="_blank">💬 Nhắn Zalo: 0912 205 001</a>
+      <a class="cta-btn ghost" href="mailto:info@lynxsolution.vn">✉️ info@lynxsolution.vn</a>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 LYNX — Web & Landing Page Freelance Service</footer>
+
+</body>
+</html>
