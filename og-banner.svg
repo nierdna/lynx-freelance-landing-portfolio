@@ -1,0 +1,74 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="630" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#071116"/>
+      <stop offset="0.54" stop-color="#0B171D"/>
+      <stop offset="1" stop-color="#122A36"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(910 245) rotate(135) scale(430 170)">
+      <stop stop-color="#71E6D1" stop-opacity="0.55"/>
+      <stop offset="0.55" stop-color="#6D5CFF" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#071116" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(690 540) rotate(-12) scale(560 180)">
+      <stop stop-color="#FF4B3E" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#071116" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="card" x1="650" y1="125" x2="1085" y2="505" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8F1E9"/>
+      <stop offset="1" stop-color="#C9D7D8"/>
+    </linearGradient>
+    <filter id="shadow" x="579" y="76" width="577" height="514" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="24"/>
+      <feGaussianBlur stdDeviation="28"/>
+      <feComposite in2="hardAlpha" operator="out"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.42 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_1_1"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_1_1" result="shape"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#glow1)"/>
+  <rect width="1200" height="630" fill="url(#glow2)"/>
+  <path d="M720 410C815 365 902 335 1016 333C1096 332 1153 352 1200 375V630H650C645 535 664 439 720 410Z" fill="#111D26" fill-opacity="0.68"/>
+  <path d="M0 520C108 476 199 466 308 493C447 527 520 604 650 630H0V520Z" fill="#FF4B3E" fill-opacity="0.18"/>
+
+  <g transform="translate(84 72)">
+    <text x="0" y="0" dominant-baseline="hanging" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="900" letter-spacing="3" fill="#F7F3EE">LYNX<tspan fill="#FF4B3E">.</tspan>PORTFOLIO</text>
+    <text x="0" y="88" dominant-baseline="hanging" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="900" letter-spacing="4" fill="#F5C765">LANDING PAGE • MEDIA • MOTION</text>
+    <text x="0" y="150" font-family="Inter, Arial, sans-serif" font-size="74" font-weight="900" letter-spacing="-1" fill="#F7F3EE">
+      <tspan x="0" dy="0">Make landing</tspan>
+      <tspan x="0" dy="82">pages look</tspan>
+      <tspan x="0" dy="82">expensive.</tspan>
+    </text>
+    <text x="0" y="430" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="600" fill="#DCD5CD">
+      <tspan x="0" dy="0">Media-first websites with clear copy,</tspan>
+      <tspan x="0" dy="38">strong visuals and polished motion.</tspan>
+    </text>
+  </g>
+
+  <g filter="url(#shadow)">
+    <rect x="650" y="122" width="444" height="396" rx="18" fill="#10191F" stroke="white" stroke-opacity="0.18"/>
+    <rect x="650" y="122" width="444" height="42" rx="18" fill="#121F27"/>
+    <rect x="650" y="146" width="444" height="18" fill="#121F27"/>
+    <circle cx="678" cy="143" r="7" fill="#FF4B3E"/>
+    <circle cx="700" cy="143" r="7" fill="#F5C765"/>
+    <circle cx="722" cy="143" r="7" fill="#71E6D1"/>
+    <rect x="684" y="194" width="370" height="254" rx="16" fill="url(#card)"/>
+    <path d="M684 365C741 321 785 328 842 359C906 393 964 392 1054 324V448H684V365Z" fill="#071116" fill-opacity="0.23"/>
+    <rect x="718" y="224" width="146" height="18" rx="9" fill="#071116" fill-opacity="0.18"/>
+    <rect x="718" y="258" width="288" height="26" rx="13" fill="#071116" fill-opacity="0.76"/>
+    <rect x="718" y="296" width="234" height="20" rx="10" fill="#071116" fill-opacity="0.34"/>
+    <rect x="718" y="402" width="118" height="34" rx="10" fill="#FF4B3E"/>
+    <rect x="854" y="402" width="118" height="34" rx="10" fill="#071116" fill-opacity="0.62"/>
+    <g transform="translate(910 220)">
+      <rect x="0" y="0" width="104" height="142" rx="16" fill="#071116" fill-opacity="0.84"/>
+      <rect x="18" y="24" width="68" height="12" rx="6" fill="#71E6D1"/>
+      <rect x="18" y="52" width="54" height="54" rx="12" fill="#F5C765"/>
+      <rect x="18" y="118" width="68" height="8" rx="4" fill="#F7F3EE" fill-opacity="0.7"/>
+    </g>
+    <text x="684" y="486" font-family="Inter, Arial, sans-serif" font-size="18" font-weight="900" fill="#F7F3EE">portfolio.lynxsolution.vn</text>
+  </g>
+</svg>
