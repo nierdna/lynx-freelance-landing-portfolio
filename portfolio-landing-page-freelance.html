@@ -129,7 +129,26 @@
   .service .k{font-size:12px;color:var(--gold);font-weight:850;margin-bottom:28px}
   .service h3{font-size:20px;line-height:1.1;margin-bottom:10px}
   .service p{color:var(--muted);font-size:13.5px}
+  .filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:26px}
+  .filter-btn{
+    border:1px solid var(--line);background:transparent;color:var(--muted);
+    font-size:13px;font-weight:750;padding:9px 16px;border-radius:999px;cursor:pointer;
+    font-family:inherit;transition:.2s ease;
+  }
+  .filter-btn:hover{color:var(--ink);border-color:rgba(255,255,255,.3)}
+  .filter-btn.active{background:var(--ink);color:#0b1114;border-color:var(--ink)}
   .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .project[hidden]{display:none}
+  .cat-pill{
+    position:absolute;top:12px;left:12px;z-index:2;
+    font-size:10.5px;font-weight:850;text-transform:uppercase;letter-spacing:.07em;
+    padding:5px 10px;border-radius:999px;color:#0b1114;
+  }
+  .project-media{position:relative}
+  .cat-pill.cat-multi{background:var(--cyan)}
+  .cat-pill.cat-edu{background:var(--gold)}
+  .cat-pill.cat-fashion{background:#f08fb0}
+  .cat-pill.cat-wedding{background:#d9a4f5}
   .project{
     border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#0c171d;
     min-width:0;
@@ -209,7 +228,7 @@
       <div>
         <div class="eyebrow">Landing page • visual direction • motion</div>
         <h1>Làm landing page nhìn đã mắt, rõ ý, sẵn sàng gửi khách.</h1>
-        <p class="lead">Mình xử lý phần nhìn cho website: hình ảnh, bố cục, màu sắc, animation và media. Thông tin gọn, visual mạnh, ưu tiên cảm giác chuyên nghiệp ngay từ màn hình đầu.</p>
+        <p class="lead">Mình xử lý phần nhìn cho website: hình ảnh, bố cục, màu sắc, animation và media. Đã làm qua nhiều ngành — ô tô, AI, giáo dục, thời trang, cưới hỏi — nên linh hoạt với hầu hết loại landing page.</p>
         <div class="hero-actions">
           <a class="btn hot" href="#projects">Xem dự án thật</a>
           <a class="btn alt" href="#contact">Gửi brief nhanh</a>
@@ -271,12 +290,19 @@
   <section id="projects">
     <div class="wrap">
       <div class="section-title">
-        <h2>Dự án đang chạy thật.</h2>
+        <h2>12 dự án thật, trải đều nhiều ngành.</h2>
         <p>Portfolio không dùng mockup giả. Link mở được, media nhìn được, khách tự kiểm tra nhanh.</p>
       </div>
-      <div class="projects">
-        <article class="project">
-          <div class="project-media"><img src="https://api.vinfast-phamvandong.lynxsolution.vn/uploads/Transfer_the_background_lighting_and_202606221734_bbc234d888.jpeg" alt="VinFast Hai Ba Trung website visual"></div>
+      <div class="filters" role="tablist" aria-label="Lọc dự án theo ngành">
+        <button class="filter-btn active" data-filter="all">Tất cả (12)</button>
+        <button class="filter-btn" data-filter="multi">Đa ngành</button>
+        <button class="filter-btn" data-filter="edu">Giáo dục</button>
+        <button class="filter-btn" data-filter="fashion">Thời trang</button>
+        <button class="filter-btn" data-filter="wedding">Cưới hỏi & sự kiện</button>
+      </div>
+      <div class="projects" id="projectGrid">
+        <article class="project" data-cat="multi">
+          <div class="project-media"><span class="cat-pill cat-multi">Đa ngành</span><img src="https://api.vinfast-phamvandong.lynxsolution.vn/uploads/Transfer_the_background_lighting_and_202606221734_bbc234d888.jpeg" alt="VinFast Hai Ba Trung website visual"></div>
           <div class="project-copy">
             <span class="tag">Auto landing</span>
             <h3>VinFast Hai Bà Trưng</h3>
@@ -284,8 +310,8 @@
             <a href="https://vinfasthaibatrungauto.vn/" target="_blank" rel="noreferrer">Mở website</a>
           </div>
         </article>
-        <article class="project">
-          <div class="project-media"><img src="https://luminaforge.lynxsolution.vn/images/bento-preview-4.png" alt="LuminaForge workflow visual"></div>
+        <article class="project" data-cat="multi">
+          <div class="project-media"><span class="cat-pill cat-multi">Đa ngành</span><img src="https://luminaforge.lynxsolution.vn/images/bento-preview-4.png" alt="LuminaForge workflow visual"></div>
           <div class="project-copy">
             <span class="tag">AI product</span>
             <h3>LuminaForge</h3>
@@ -293,8 +319,8 @@
             <a href="https://luminaforge.lynxsolution.vn/" target="_blank" rel="noreferrer">Mở website</a>
           </div>
         </article>
-        <article class="project">
-          <div class="project-media"><img src="https://api.vinfast-phamvandong.lynxsolution.vn/uploads/vin_fast_mpv_7_basic_CE_18_exterior_4e25b822c6.webp" alt="Seller landing preview"></div>
+        <article class="project" data-cat="multi">
+          <div class="project-media"><span class="cat-pill cat-multi">Đa ngành</span><img src="https://api.vinfast-phamvandong.lynxsolution.vn/uploads/vin_fast_mpv_7_basic_CE_18_exterior_4e25b822c6.webp" alt="Seller landing preview"></div>
           <div class="project-copy">
             <span class="tag">Sales funnel</span>
             <h3>Phễu lead VinFast</h3>
@@ -302,8 +328,8 @@
             <a href="https://saler.lynxsolution.vn/" target="_blank" rel="noreferrer">Mở website</a>
           </div>
         </article>
-        <article class="project">
-          <div class="project-media"><img src="https://luminaforge.lynxsolution.vn/images/bento-preview-2.png" alt="Course landing visual style"></div>
+        <article class="project" data-cat="multi">
+          <div class="project-media"><span class="cat-pill cat-multi">Đa ngành</span><img src="https://luminaforge.lynxsolution.vn/images/bento-preview-2.png" alt="Course landing visual style"></div>
           <div class="project-copy">
             <span class="tag">Course page</span>
             <h3>Khóa Claude 1:1</h3>
@@ -311,8 +337,8 @@
             <a href="https://khoa-hoc-claude-11.lynxsolution.vn/" target="_blank" rel="noreferrer">Mở website</a>
           </div>
         </article>
-        <article class="project">
-          <div class="project-media"><img src="https://luminaforge.lynxsolution.vn/images/bento-preview-3.avif" alt="Corporate website visual"></div>
+        <article class="project" data-cat="multi">
+          <div class="project-media"><span class="cat-pill cat-multi">Đa ngành</span><img src="https://luminaforge.lynxsolution.vn/images/bento-preview-3.avif" alt="Corporate website visual"></div>
           <div class="project-copy">
             <span class="tag">Company site</span>
             <h3>LYNX AI Solution</h3>
@@ -320,13 +346,67 @@
             <a href="https://lynxsolution.vn/" target="_blank" rel="noreferrer">Mở website</a>
           </div>
         </article>
-        <article class="project">
-          <div class="project-media"><img src="https://api.vinfast-phamvandong.lynxsolution.vn/uploads/Modify_the_background_shadows_and_202606221808_2009d2719e.jpeg" alt="Visual refresh example"></div>
+        <article class="project" data-cat="multi">
+          <div class="project-media"><span class="cat-pill cat-multi">Đa ngành</span><img src="https://api.vinfast-phamvandong.lynxsolution.vn/uploads/Modify_the_background_shadows_and_202606221808_2009d2719e.jpeg" alt="Visual refresh example"></div>
           <div class="project-copy">
             <span class="tag">Visual refresh</span>
             <h3>Sửa nhanh landing</h3>
             <p>Đổi ảnh, màu, layout và motion cho trang có sẵn mà không phải làm lại từ đầu.</p>
             <a href="#contact">Trao đổi brief</a>
+          </div>
+        </article>
+        <article class="project" data-cat="edu">
+          <div class="project-media"><span class="cat-pill cat-edu">Giáo dục</span><img src="https://aschool.edu.vn/public/fileupload/source/2%20%7C%20TUYEN%20SINH/NAM%20HOC%2026-27/THPT/Cover-Banner%20(1).jpg?vs=2" alt="Archimedes School banner visual"></div>
+          <div class="project-copy">
+            <span class="tag">Trường học</span>
+            <h3>Archimedes School</h3>
+            <p>Làm mới banner tuyển sinh, sắp xếp lại khối tin tức và số liệu nổi bật cho hệ thống trường liên cấp.</p>
+            <a href="https://aschool.edu.vn/" target="_blank" rel="noreferrer">Mở website</a>
+          </div>
+        </article>
+        <article class="project" data-cat="edu">
+          <div class="project-media"><span class="cat-pill cat-edu">Giáo dục</span><img src="https://hsa-education.sgp1.digitaloceanspaces.com/ef2f1605-1663-4572-8172-3179ba6ede73_c8945014-5317-4861-b6a9-910f256e0e56_Ver01.webp" alt="HSA Education visual"></div>
+          <div class="project-copy">
+            <span class="tag">Trung tâm luyện thi</span>
+            <h3>HSA Education</h3>
+            <p>Tối ưu trang chủ trung tâm luyện thi ĐGNL/ĐGTD: banner kỳ thi, form tư vấn và khối vinh danh học sinh.</p>
+            <a href="https://hsavnu.edu.vn/" target="_blank" rel="noreferrer">Mở website</a>
+          </div>
+        </article>
+        <article class="project" data-cat="fashion">
+          <div class="project-media"><span class="cat-pill cat-fashion">Thời trang</span><img src="https://owen.cdn.vccloud.vn/media/codazon/slideshow/t/o/topbanner25_11zon.jpg" alt="Owen Fashion banner visual"></div>
+          <div class="project-copy">
+            <span class="tag">Thời trang nam</span>
+            <h3>OWEN Fashion</h3>
+            <p>Chỉnh banner chiến dịch, đồng bộ màu thương hiệu và bố cục danh mục sản phẩm trên trang chủ.</p>
+            <a href="https://owen.vn/" target="_blank" rel="noreferrer">Mở website</a>
+          </div>
+        </article>
+        <article class="project" data-cat="fashion">
+          <div class="project-media"><span class="cat-pill cat-fashion">Thời trang</span><img src="https://theme.hstatic.net/200000182297/1000887316/14/share_fb_home.png?v=3140" alt="NEM Fashion visual"></div>
+          <div class="project-copy">
+            <span class="tag">Thời trang công sở</span>
+            <h3>NEM Fashion</h3>
+            <p>Sắp lại lưới sản phẩm mới/bán chạy, làm gọn banner bộ sưu tập theo mùa cho shop thời trang công sở.</p>
+            <a href="https://nemshop.vn/" target="_blank" rel="noreferrer">Mở website</a>
+          </div>
+        </article>
+        <article class="project" data-cat="fashion">
+          <div class="project-media"><span class="cat-pill cat-fashion">Thời trang</span><img src="https://fashion-web.lynxsolution.vn/_next/image?url=%2Fbackground.jpg&amp;w=3840&amp;q=75" alt="Fashion 3D demo visual"></div>
+          <div class="project-copy">
+            <span class="tag">Demo 3D / lookbook</span>
+            <h3>Fashion 3D Showcase</h3>
+            <p>Landing thời trang với model 3D xoay 360°, lookbook chia 3 style và animation khi cuộn trang.</p>
+            <a href="https://fashion-web.lynxsolution.vn/" target="_blank" rel="noreferrer">Mở website</a>
+          </div>
+        </article>
+        <article class="project" data-cat="wedding">
+          <div class="project-media"><span class="cat-pill cat-wedding">Cưới hỏi</span><img src="https://letscelebrate.vn/cover-lets-celebrate.png" alt="Let's Celebrate wedding planner visual"></div>
+          <div class="project-copy">
+            <span class="tag">Wedding planner</span>
+            <h3>Let's Celebrate</h3>
+            <p>Landing dịch vụ cưới hỏi: tông màu ấm, hình ảnh cảm xúc và form liên hệ đặt lịch tư vấn rõ ràng.</p>
+            <a href="https://letscelebrate.vn/" target="_blank" rel="noreferrer">Mở website</a>
           </div>
         </article>
       </div>
@@ -401,5 +481,22 @@
 <footer>
   <div class="wrap">© 2026 LYNX — Landing page, visual direction & motion.</div>
 </footer>
+<script>
+  (function(){
+    var btns = document.querySelectorAll('.filter-btn');
+    var cards = document.querySelectorAll('#projectGrid .project');
+    btns.forEach(function(btn){
+      btn.addEventListener('click', function(){
+        btns.forEach(function(b){ b.classList.remove('active'); });
+        btn.classList.add('active');
+        var f = btn.getAttribute('data-filter');
+        cards.forEach(function(card){
+          var show = (f === 'all') || (card.getAttribute('data-cat') === f);
+          card.hidden = !show;
+        });
+      });
+    });
+  })();
+</script>
 </body>
 </html>
