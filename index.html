@@ -1,1 +1,502 @@
-PLACEHOLDER
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LYNX Portfolio — Landing Page, Visual & Motion</title>
+<meta name="description" content="Portfolio triển khai landing page, visual direction, media và animation cho website bán hàng, sản phẩm AI, khóa học và thương hiệu doanh nghiệp.">
+<link rel="canonical" href="https://portfolio.lynxsolution.vn/">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#071116">
+<meta property="og:locale" content="vi_VN">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="LYNX Portfolio">
+<meta property="og:title" content="LYNX Portfolio — Landing Page, Visual & Motion">
+<meta property="og:description" content="Media-first landing pages với visual mạnh, copy gọn và motion chỉn chu.">
+<meta property="og:url" content="https://portfolio.lynxsolution.vn/">
+<meta property="og:image" content="https://portfolio.lynxsolution.vn/og-banner.png">
+<meta property="og:image:secure_url" content="https://portfolio.lynxsolution.vn/og-banner.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="LYNX Portfolio banner for landing page visual and motion work">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="LYNX Portfolio — Landing Page, Visual & Motion">
+<meta name="twitter:description" content="Media-first landing pages với visual mạnh, copy gọn và motion chỉn chu.">
+<meta name="twitter:image" content="https://portfolio.lynxsolution.vn/og-banner.png">
+<meta name="twitter:image:alt" content="LYNX Portfolio banner for landing page visual and motion work">
+<style>
+  :root{
+    --ink:#f7f3ee;
+    --muted:#b7b0a8;
+    --line:rgba(255,255,255,.14);
+    --soft:rgba(255,255,255,.07);
+    --red:#ff4b3e;
+    --gold:#f5c765;
+    --cyan:#71e6d1;
+    --navy:#071116;
+    --panel:#10191f;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    min-height:100vh;
+    background:#071116;
+    color:var(--ink);
+    font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;
+    line-height:1.5;
+    overflow-x:hidden;
+  }
+  img,video{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  .wrap{width:min(1180px,calc(100% - 40px));margin:0 auto}
+  .topbar{
+    position:fixed;z-index:20;left:0;right:0;top:0;
+    backdrop-filter:blur(18px);
+    background:rgba(7,17,22,.72);
+    border-bottom:1px solid rgba(255,255,255,.09);
+  }
+  .nav{height:64px;display:flex;align-items:center;justify-content:space-between;gap:18px}
+  .brand{font-size:14px;font-weight:850;letter-spacing:.08em;text-transform:uppercase}
+  .brand span{color:var(--red)}
+  .navlinks{display:flex;gap:22px;color:var(--muted);font-size:13px;font-weight:650}
+  .navlinks a:hover{color:var(--ink)}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;
+    min-height:42px;padding:0 18px;border-radius:8px;border:1px solid transparent;
+    background:var(--ink);color:#0b1114;font-size:13px;font-weight:800;
+  }
+  .btn.alt{background:transparent;color:var(--ink);border-color:var(--line)}
+  .btn.hot{background:var(--red);color:white}
+  .hero{
+    position:relative;min-height:92vh;padding:128px 0 54px;
+    display:flex;align-items:flex-end;overflow:hidden;
+    border-bottom:1px solid rgba(255,255,255,.1);
+  }
+  .hero:before{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(90deg,rgba(7,17,22,.93) 0%,rgba(7,17,22,.72) 42%,rgba(7,17,22,.28) 100%);
+    z-index:1;
+  }
+  .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.62;filter:saturate(1.08) contrast(1.05)}
+  .hero-content{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:end}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    color:var(--gold);font-size:12px;font-weight:850;text-transform:uppercase;letter-spacing:.12em;
+    margin-bottom:18px;
+  }
+  h1{font-size:clamp(42px,7vw,86px);line-height:.96;letter-spacing:0;font-weight:900;max-width:820px}
+  .lead{margin-top:22px;max-width:590px;color:#ddd5cc;font-size:clamp(16px,1.8vw,19px)}
+  .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+  .hero-panel{
+    border:1px solid rgba(255,255,255,.16);
+    background:rgba(9,18,24,.7);
+    border-radius:8px;
+    overflow:hidden;
+    box-shadow:0 30px 90px rgba(0,0,0,.35);
+  }
+  .panel-head{height:38px;border-bottom:1px solid rgba(255,255,255,.12);display:flex;align-items:center;gap:8px;padding:0 14px}
+  .dot{width:9px;height:9px;border-radius:50%;background:var(--red)}
+  .dot:nth-child(2){background:var(--gold)}
+  .dot:nth-child(3){background:var(--cyan)}
+  .panel-body{position:relative;aspect-ratio:16/10;overflow:hidden}
+  .panel-body img{width:100%;height:100%;object-fit:cover}
+  .panel-caption{
+    position:absolute;left:18px;right:18px;bottom:18px;
+    display:flex;justify-content:space-between;gap:16px;align-items:end;
+    color:white;text-shadow:0 2px 16px rgba(0,0,0,.65);
+  }
+  .panel-caption b{font-size:20px}
+  .panel-caption span{font-size:12px;color:#e9e1d8}
+  section{padding:76px 0;border-bottom:1px solid rgba(255,255,255,.08)}
+  .section-title{display:flex;justify-content:space-between;gap:24px;align-items:end;margin-bottom:30px}
+  h2{font-size:clamp(28px,4.6vw,52px);line-height:1.02;font-weight:900;letter-spacing:0;max-width:680px}
+  .section-title p{max-width:390px;color:var(--muted);font-size:15px}
+  .media-strip{display:grid;grid-template-columns:1.15fr .85fr;gap:14px}
+  .shot{
+    position:relative;min-height:330px;border-radius:8px;overflow:hidden;
+    border:1px solid rgba(255,255,255,.13);background:var(--panel);
+  }
+  .shot.small{min-height:158px}
+  .shot img,.shot video{width:100%;height:100%;object-fit:cover}
+  .shot:after{content:"";position:absolute;inset:auto 0 0;height:45%;background:linear-gradient(transparent,rgba(0,0,0,.75))}
+  .shot-label{position:absolute;z-index:2;left:18px;right:18px;bottom:16px;display:flex;justify-content:space-between;gap:14px;align-items:end}
+  .shot-label b{font-size:18px}
+  .shot-label span{font-size:12px;color:#e5ddd4}
+  .stack{display:grid;gap:14px}
+  .services{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+  .service{background:#0c171d;padding:22px;min-height:170px}
+  .service .k{font-size:12px;color:var(--gold);font-weight:850;margin-bottom:28px}
+  .service h3{font-size:20px;line-height:1.1;margin-bottom:10px}
+  .service p{color:var(--muted);font-size:13.5px}
+  .filters{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:26px}
+  .filter-btn{
+    border:1px solid var(--line);background:transparent;color:var(--muted);
+    font-size:13px;font-weight:750;padding:9px 16px;border-radius:999px;cursor:pointer;
+    font-family:inherit;transition:.2s ease;
+  }
+  .filter-btn:hover{color:var(--ink);border-color:rgba(255,255,255,.3)}
+  .filter-btn.active{background:var(--ink);color:#0b1114;border-color:var(--ink)}
+  .projects{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .project[hidden]{display:none}
+  .cat-pill{
+    position:absolute;top:12px;left:12px;z-index:2;
+    font-size:10.5px;font-weight:850;text-transform:uppercase;letter-spacing:.07em;
+    padding:5px 10px;border-radius:999px;color:#0b1114;
+  }
+  .project-media{position:relative}
+  .cat-pill.cat-multi{background:var(--cyan)}
+  .cat-pill.cat-edu{background:var(--gold)}
+  .cat-pill.cat-fashion{background:#f08fb0}
+  .cat-pill.cat-wedding{background:#d9a4f5}
+  .project{
+    border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#0c171d;
+    min-width:0;
+  }
+  .project-media{aspect-ratio:4/3;overflow:hidden;background:#111}
+  .project-media img,.project-media video{width:100%;height:100%;object-fit:cover;transition:transform .45s ease}
+  .project:hover .project-media img,.project:hover .project-media video{transform:scale(1.045)}
+  .project-copy{padding:18px}
+  .tag{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--cyan);font-weight:850}
+  .project h3{font-size:21px;margin:8px 0 8px;line-height:1.12}
+  .project p{font-size:13.5px;color:var(--muted);min-height:60px}
+  .project a{display:inline-flex;margin-top:14px;color:var(--ink);font-size:13px;font-weight:800;border-bottom:1px solid rgba(255,255,255,.35)}
+  .price-row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+  .price{
+    border:1px solid var(--line);border-radius:8px;padding:22px;background:#0c171d;
+    display:flex;flex-direction:column;gap:14px;min-height:220px;
+  }
+  .price b{font-size:28px;color:var(--gold)}
+  .price h3{font-size:21px}
+  .price p{color:var(--muted);font-size:14px}
+  .price .btn{margin-top:auto;width:max-content}
+  .workflow{display:grid;grid-template-columns:.8fr 1.2fr;gap:18px;align-items:stretch}
+  .steps{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+  .step{background:#0c171d;padding:22px}
+  .step b{color:var(--red);font-size:13px}
+  .step h3{font-size:18px;margin:14px 0 8px}
+  .step p{color:var(--muted);font-size:13.5px}
+  .feature-image{border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#111;min-height:380px}
+  .feature-image img{width:100%;height:100%;object-fit:cover}
+  .contact{
+    display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;
+    background:linear-gradient(135deg,rgba(255,75,62,.2),rgba(113,230,209,.12));
+    border:1px solid rgba(255,255,255,.16);border-radius:8px;padding:34px;
+  }
+  .contact p{color:#ded6ce;margin-top:12px;max-width:590px}
+  .contact-card{display:grid;gap:10px}
+  .contact-line{border:1px solid var(--line);border-radius:8px;padding:14px 16px;background:rgba(0,0,0,.18)}
+  .contact-line span{display:block;color:var(--muted);font-size:12px;margin-bottom:2px}
+  footer{padding:28px 0;color:var(--muted);font-size:12px}
+  @media (max-width:900px){
+    .hero{min-height:auto;padding-top:110px}
+    .hero-content,.media-strip,.workflow,.contact{grid-template-columns:1fr}
+    .projects,.price-row{grid-template-columns:1fr 1fr}
+    .services{grid-template-columns:1fr 1fr}
+    .navlinks{display:none}
+  }
+  @media (max-width:620px){
+    .wrap{width:min(100% - 28px,1180px)}
+    .hero{padding-bottom:36px}
+    .section-title{display:block}
+    .section-title p{margin-top:12px}
+    .projects,.price-row,.services,.steps{grid-template-columns:1fr}
+    .shot{min-height:260px}
+    .contact{padding:22px}
+    .btn{width:100%}
+    .hero-actions{width:100%}
+  }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <nav class="wrap nav">
+    <a class="brand" href="#">LYNX<span>.</span>Portfolio</a>
+    <div class="navlinks">
+      <a href="#media">Visual</a>
+      <a href="#projects">Dự án</a>
+      <a href="#pricing">Gói làm việc</a>
+    </div>
+    <a class="btn alt" href="https://zalo.me/0912205001" target="_blank" rel="noreferrer">Zalo tư vấn</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <video class="hero-video" src="https://luminaforge.lynxsolution.vn/videos/hero.mp4" autoplay muted loop playsinline poster="https://luminaforge.lynxsolution.vn/images/bento-preview.png"></video>
+    <div class="wrap hero-content">
+      <div>
+        <div class="eyebrow">Landing page • visual direction • motion</div>
+        <h1>Làm landing page nhìn đã mắt, rõ ý, sẵn sàng gửi khách.</h1>
+        <p class="lead">Mình xử lý phần nhìn cho website: hình ảnh, bố cục, màu sắc, animation và media. Đã làm qua nhiều ngành — ô tô, AI, giáo dục, thời trang, cưới hỏi — nên linh hoạt với hầu hết loại landing page.</p>
+        <div class="hero-actions">
+          <a class="btn hot" href="#projects">Xem dự án thật</a>
+          <a class="btn alt" href="#contact">Gửi brief nhanh</a>
+        </div>
+      </div>
+      <div class="hero-panel" aria-label="Portfolio preview">
+        <div class="panel-head"><i class="dot"></i><i class="dot"></i><i class="dot"></i></div>
+        <div class="panel-body">
+          <img src="https://api.vinfast-phamvandong.lynxsolution.vn/uploads/Transfer_the_background_lighting_and_202606221742_a8c6926048.jpeg" alt="VinFast landing visual preview">
+          <div class="panel-caption">
+            <b>Visual-first page</b>
+            <span>Hero • product media • lead CTA</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="media">
+    <div class="wrap">
+      <div class="section-title">
+        <h2>Trang đẹp bắt đầu từ media đủ mạnh.</h2>
+        <p>Ảnh, video, mockup và motion được chọn để người xem hiểu sản phẩm trước khi phải đọc nhiều chữ.</p>
+      </div>
+      <div class="media-strip">
+        <div class="shot">
+          <video src="https://luminaforge.lynxsolution.vn/videos/cta.mp4" autoplay muted loop playsinline poster="https://luminaforge.lynxsolution.vn/images/bento-preview-2.png"></video>
+          <div class="shot-label"><b>Motion hero</b><span>video nền, CTA nổi bật</span></div>
+        </div>
+        <div class="stack">
+          <div class="shot small">
+            <img src="https://luminaforge.lynxsolution.vn/images/bento-preview.png" alt="Workflow product interface">
+            <div class="shot-label"><b>Product UI</b><span>show app thật</span></div>
+          </div>
+          <div class="shot small">
+            <img src="https://api.vinfast-phamvandong.lynxsolution.vn/uploads/vinfast_vf3_basic_CE_18_exterior_a88c77d7ec.webp" alt="VinFast product image">
+            <div class="shot-label"><b>Product shot</b><span>ảnh bán hàng rõ nét</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="section-title">
+        <h2>Mình làm gọn 4 phần khách hay cần nhất.</h2>
+        <p>Không ôm đồm. Tập trung vào những thứ làm trang nhìn tốt hơn và dễ chốt hơn.</p>
+      </div>
+      <div class="services">
+        <article class="service"><div class="k">01</div><h3>Hero visual</h3><p>Banner, ảnh/video nền, headline và CTA đầu trang.</p></article>
+        <article class="service"><div class="k">02</div><h3>Media system</h3><p>Chọn ảnh, crop, mockup, bento layout, product preview.</p></article>
+        <article class="service"><div class="k">03</div><h3>Motion</h3><p>Scroll reveal, hover, video loop, micro-interaction nhẹ.</p></article>
+        <article class="service"><div class="k">04</div><h3>Responsive</h3><p>Canh lại mobile/tablet để chữ, ảnh và CTA không vỡ.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="wrap">
+      <div class="section-title">
+        <h2>12 dự án thật, trải đều nhiều ngành.</h2>
+        <p>Portfolio không dùng mockup giả. Link mở được, media nhìn được, khách tự kiểm tra nhanh.</p>
+      </div>
+      <div class="filters" role="tablist" aria-label="Lọc dự án theo ngành">
+        <button class="filter-btn active" data-filter="all">Tất cả (12)</button>
+        <button class="filter-btn" data-filter="multi">Đa ngành</button>
+        <button class="filter-btn" data-filter="edu">Giáo dục</button>
+        <button class="filter-btn" data-filter="fashion">Thời trang</button>
+        <button class="filter-btn" data-filter="wedding">Cưới hỏi & sự kiện</button>
+      </div>
+      <div class="projects" id="projectGrid">
+        <article class="project" data-cat="multi">
+          <div class="project-media"><span class="cat-pill cat-multi">Đa ngành</span><img src="https://api.vinfast-phamvandong.lynxsolution.vn/uploads/Transfer_the_background_lighting_and_202606221734_bbc234d888.jpeg" alt="VinFast Hai Ba Trung website visual"></div>
+          <div class="project-copy">
+            <span class="tag">Auto landing</span>
+            <h3>VinFast Hai Bà Trưng</h3>
+            <p>Landing đại lý xe: ảnh xe lớn, CTA lái thử, catalog rõ và màu thương hiệu sạch.</p>
+            <a href="https://vinfasthaibatrungauto.vn/" target="_blank" rel="noreferrer">Mở website</a>
+          </div>
+        </article>
+        <article class="project" data-cat="multi">
+          <div class="project-media"><span class="cat-pill cat-multi">Đa ngành</span><img src="https://luminaforge.lynxsolution.vn/images/bento-preview-4.png" alt="LuminaForge workflow visual"></div>
+          <div class="project-copy">
+            <span class="tag">AI product</span>
+            <h3>LuminaForge</h3>
+            <p>Trang sản phẩm AI: video hero, bento preview, dark UI và nội dung ngắn.</p>
+            <a href="https://luminaforge.lynxsolution.vn/" target="_blank" rel="noreferrer">Mở website</a>
+          </div>
+        </article>
+        <article class="project" data-cat="multi">
+          <div class="project-media"><span class="cat-pill cat-multi">Đa ngành</span><img src="https://api.vinfast-phamvandong.lynxsolution.vn/uploads/vin_fast_mpv_7_basic_CE_18_exterior_4e25b822c6.webp" alt="Seller landing preview"></div>
+          <div class="project-copy">
+            <span class="tag">Sales funnel</span>
+            <h3>Phễu lead VinFast</h3>
+            <p>Landing bán hàng: section gọn, dashboard lead, thông điệp tập trung chuyển đổi.</p>
+            <a href="https://saler.lynxsolution.vn/" target="_blank" rel="noreferrer">Mở website</a>
+          </div>
+        </article>
+        <article class="project" data-cat="multi">
+          <div class="project-media"><span class="cat-pill cat-multi">Đa ngành</span><img src="https://luminaforge.lynxsolution.vn/images/bento-preview-2.png" alt="Course landing visual style"></div>
+          <div class="project-copy">
+            <span class="tag">Course page</span>
+            <h3>Khóa Claude 1:1</h3>
+            <p>Landing khóa học: chân dung, lộ trình, giá và FAQ được gom lại dễ đọc.</p>
+            <a href="https://khoa-hoc-claude-11.lynxsolution.vn/" target="_blank" rel="noreferrer">Mở website</a>
+          </div>
+        </article>
+        <article class="project" data-cat="multi">
+          <div class="project-media"><span class="cat-pill cat-multi">Đa ngành</span><img src="https://luminaforge.lynxsolution.vn/images/bento-preview-3.avif" alt="Corporate website visual"></div>
+          <div class="project-copy">
+            <span class="tag">Company site</span>
+            <h3>LYNX AI Solution</h3>
+            <p>Trang công ty: profile, năng lực, sản phẩm và case study trình bày gọn.</p>
+            <a href="https://lynxsolution.vn/" target="_blank" rel="noreferrer">Mở website</a>
+          </div>
+        </article>
+        <article class="project" data-cat="multi">
+          <div class="project-media"><span class="cat-pill cat-multi">Đa ngành</span><img src="https://api.vinfast-phamvandong.lynxsolution.vn/uploads/Modify_the_background_shadows_and_202606221808_2009d2719e.jpeg" alt="Visual refresh example"></div>
+          <div class="project-copy">
+            <span class="tag">Visual refresh</span>
+            <h3>Sửa nhanh landing</h3>
+            <p>Đổi ảnh, màu, layout và motion cho trang có sẵn mà không phải làm lại từ đầu.</p>
+            <a href="#contact">Trao đổi brief</a>
+          </div>
+        </article>
+        <article class="project" data-cat="edu">
+          <div class="project-media"><span class="cat-pill cat-edu">Giáo dục</span><img src="https://aschool.edu.vn/public/fileupload/source/2%20%7C%20TUYEN%20SINH/NAM%20HOC%2026-27/THPT/Cover-Banner%20(1).jpg?vs=2" alt="Archimedes School banner visual"></div>
+          <div class="project-copy">
+            <span class="tag">Trường học</span>
+            <h3>Archimedes School</h3>
+            <p>Làm mới banner tuyển sinh, sắp xếp lại khối tin tức và số liệu nổi bật cho hệ thống trường liên cấp.</p>
+            <a href="https://aschool.edu.vn/" target="_blank" rel="noreferrer">Mở website</a>
+          </div>
+        </article>
+        <article class="project" data-cat="edu">
+          <div class="project-media"><span class="cat-pill cat-edu">Giáo dục</span><img src="https://hsa-education.sgp1.digitaloceanspaces.com/ef2f1605-1663-4572-8172-3179ba6ede73_c8945014-5317-4861-b6a9-910f256e0e56_Ver01.webp" alt="HSA Education visual"></div>
+          <div class="project-copy">
+            <span class="tag">Trung tâm luyện thi</span>
+            <h3>HSA Education</h3>
+            <p>Tối ưu trang chủ trung tâm luyện thi ĐGNL/ĐGTD: banner kỳ thi, form tư vấn và khối vinh danh học sinh.</p>
+            <a href="https://hsavnu.edu.vn/" target="_blank" rel="noreferrer">Mở website</a>
+          </div>
+        </article>
+        <article class="project" data-cat="fashion">
+          <div class="project-media"><span class="cat-pill cat-fashion">Thời trang</span><img src="https://owen.cdn.vccloud.vn/media/codazon/slideshow/t/o/topbanner25_11zon.jpg" alt="Owen Fashion banner visual"></div>
+          <div class="project-copy">
+            <span class="tag">Thời trang nam</span>
+            <h3>OWEN Fashion</h3>
+            <p>Chỉnh banner chiến dịch, đồng bộ màu thương hiệu và bố cục danh mục sản phẩm trên trang chủ.</p>
+            <a href="https://owen.vn/" target="_blank" rel="noreferrer">Mở website</a>
+          </div>
+        </article>
+        <article class="project" data-cat="fashion">
+          <div class="project-media"><span class="cat-pill cat-fashion">Thời trang</span><img src="https://theme.hstatic.net/200000182297/1000887316/14/share_fb_home.png?v=3140" alt="NEM Fashion visual"></div>
+          <div class="project-copy">
+            <span class="tag">Thời trang công sở</span>
+            <h3>NEM Fashion</h3>
+            <p>Sắp lại lưới sản phẩm mới/bán chạy, làm gọn banner bộ sưu tập theo mùa cho shop thời trang công sở.</p>
+            <a href="https://nemshop.vn/" target="_blank" rel="noreferrer">Mở website</a>
+          </div>
+        </article>
+        <article class="project" data-cat="fashion">
+          <div class="project-media"><span class="cat-pill cat-fashion">Thời trang</span><img src="https://fashion-web.lynxsolution.vn/_next/image?url=%2Fbackground.jpg&amp;w=3840&amp;q=75" alt="Fashion 3D demo visual"></div>
+          <div class="project-copy">
+            <span class="tag">Demo 3D / lookbook</span>
+            <h3>Fashion 3D Showcase</h3>
+            <p>Landing thời trang với model 3D xoay 360°, lookbook chia 3 style và animation khi cuộn trang.</p>
+            <a href="https://fashion-web.lynxsolution.vn/" target="_blank" rel="noreferrer">Mở website</a>
+          </div>
+        </article>
+        <article class="project" data-cat="wedding">
+          <div class="project-media"><span class="cat-pill cat-wedding">Cưới hỏi</span><img src="https://letscelebrate.vn/cover-lets-celebrate.png" alt="Let's Celebrate wedding planner visual"></div>
+          <div class="project-copy">
+            <span class="tag">Wedding planner</span>
+            <h3>Let's Celebrate</h3>
+            <p>Landing dịch vụ cưới hỏi: tông màu ấm, hình ảnh cảm xúc và form liên hệ đặt lịch tư vấn rõ ràng.</p>
+            <a href="https://letscelebrate.vn/" target="_blank" rel="noreferrer">Mở website</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <div class="wrap">
+      <div class="section-title">
+        <h2>Gói làm việc ngắn gọn.</h2>
+        <p>Báo giá cuối phụ thuộc số trang, tài sản media hiện có và mức animation cần làm.</p>
+      </div>
+      <div class="price-row">
+        <article class="price">
+          <h3>Refresh</h3>
+          <b>1.2-2.5tr</b>
+          <p>Sửa 1 landing hiện có: ảnh, màu, spacing, CTA và mobile.</p>
+          <a class="btn alt" href="#contact">Gửi link</a>
+        </article>
+        <article class="price">
+          <h3>Motion page</h3>
+          <b>2.5-5tr</b>
+          <p>Thêm video/animation, bento visual, interaction và polish toàn trang.</p>
+          <a class="btn alt" href="#contact">Lên scope</a>
+        </article>
+        <article class="price">
+          <h3>Landing mới</h3>
+          <b>từ 5tr</b>
+          <p>Dựng mới từ brief: layout, visual direction, media, responsive và bàn giao.</p>
+          <a class="btn hot" href="#contact">Bắt đầu</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap workflow">
+      <div class="section-title">
+        <div>
+          <h2>Quy trình đủ nhanh để chốt việc.</h2>
+          <p>Chỉ cần link web hiện tại, mục tiêu trang và vài asset đang có.</p>
+        </div>
+      </div>
+      <div class="steps">
+        <article class="step"><b>01</b><h3>Nhận brief</h3><p>Link web, style muốn theo, phần cần sửa hoặc cần build mới.</p></article>
+        <article class="step"><b>02</b><h3>Chốt visual</h3><p>Đề xuất media, màu, section chính và hướng animation.</p></article>
+        <article class="step"><b>03</b><h3>Dựng preview</h3><p>Làm bản xem trước để duyệt cảm giác trang trước khi public.</p></article>
+        <article class="step"><b>04</b><h3>Bàn giao</h3><p>Public, test mobile và chỉnh nhẹ sau bàn giao 3-7 ngày.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap contact">
+      <div>
+        <h2>Gửi link trang, mình xem và báo hướng làm.</h2>
+        <p>Phù hợp nhất với landing page cần nâng cấp phần nhìn: Wix, Webflow, HTML, Next.js hoặc trang đang chạy sẵn.</p>
+        <div class="hero-actions">
+          <a class="btn hot" href="https://zalo.me/0912205001" target="_blank" rel="noreferrer">Nhắn Zalo</a>
+          <a class="btn alt" href="mailto:info@lynxsolution.vn">Gửi email</a>
+        </div>
+      </div>
+      <div class="contact-card">
+        <div class="contact-line"><span>Zalo</span><b>0912 205 001</b></div>
+        <div class="contact-line"><span>Email</span><b>info@lynxsolution.vn</b></div>
+        <div class="contact-line"><span>Timeline</span><b>24-72h cho chỉnh nhanh</b></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">© 2026 LYNX — Landing page, visual direction & motion.</div>
+</footer>
+<script>
+  (function(){
+    var btns = document.querySelectorAll('.filter-btn');
+    var cards = document.querySelectorAll('#projectGrid .project');
+    btns.forEach(function(btn){
+      btn.addEventListener('click', function(){
+        btns.forEach(function(b){ b.classList.remove('active'); });
+        btn.classList.add('active');
+        var f = btn.getAttribute('data-filter');
+        cards.forEach(function(card){
+          var show = (f === 'all') || (card.getAttribute('data-cat') === f);
+          card.hidden = !show;
+        });
+      });
+    });
+  })();
+</script>
+</body>
+</html>
